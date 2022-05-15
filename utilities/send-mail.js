@@ -36,6 +36,7 @@ exports.notice = (comment) => {
 
     let emailSubject = '👉 咚！「' + process.env.SITE_NAME + '」上有新评论了';
     let emailContent =  noticeTemplate({
+                            siteRealUrl:process.env.SITE_URL_REALLY,
                             siteName: process.env.SITE_NAME,
                             siteUrl: process.env.SITE_URL,
                             name: comment.get('nick'),
@@ -72,6 +73,7 @@ exports.send = (currentComment, parentComment)=> {
     }
     let emailSubject = '👉 叮咚！「' + process.env.SITE_NAME + '」上有人@了你';
     let emailContent = sendTemplate({
+                            siteRealUrl:process.env.SITE_URL_REALLY,
                             siteName: process.env.SITE_NAME,
                             siteUrl: process.env.SITE_URL,
                             pname: parentComment.get('nick'),
